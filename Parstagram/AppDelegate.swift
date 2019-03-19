@@ -22,6 +22,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 configuration.server = "https://sleepy-coast-91712.herokuapp.com/parse"
             })
         )
+        // redirecting to the feed controller if user is already logged in
+        if PFUser.current() != nil{
+            let main = UIStoryboard(name: "Main", bundle: nil)
+            let feedNavigationController = main.instantiateViewController(withIdentifier: "FeedNavigationController")
+            window?.rootViewController = feedNavigationController;
+        }
         return true
     }
 

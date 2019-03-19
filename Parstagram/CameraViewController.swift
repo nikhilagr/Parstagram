@@ -71,7 +71,7 @@ class CameraViewController: UIViewController,UIImagePickerControllerDelegate,UIN
         let image = info[.editedImage] as! UIImage// get image from dictionary named info
         // resizing the image to support Heroku
         let size = CGSize(width:300, height:300)
-        let scaledImage = image.af_imageScaled(to:size)
+        let scaledImage = image.af_imageAspectScaled(toFill: size)
         imageView.image = scaledImage
         
         // dismiss the camera view once the image is loaded in the imageview
